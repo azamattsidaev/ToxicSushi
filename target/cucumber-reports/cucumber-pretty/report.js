@@ -10,7 +10,7 @@ formatter.feature({
   ]
 });
 formatter.scenario({
-  "name": "Search Restaurants button test",
+  "name": "Log in credentials test",
   "description": "",
   "keyword": "Scenario",
   "tags": [
@@ -18,7 +18,7 @@ formatter.scenario({
       "name": "@home_Page_Regression_test"
     },
     {
-      "name": "@search_Restaurants_test"
+      "name": "@logIn_test"
     }
   ]
 });
@@ -36,24 +36,72 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "I am clicking the Search Restaurant Button",
+  "name": "I am clicking the Toggle Button",
   "keyword": "And "
 });
 formatter.match({
-  "location": "step_definitions.HomePageTest.iAmClickingTheSearchRestaurantButton()"
+  "location": "step_definitions.HomePageTest.iAmClickingTheToggleButton()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "I am verifying that the Search Label is \"SEARCH RESTAURANTS\"",
-  "keyword": "Then "
+  "name": "I am clicking the Sign in Button",
+  "keyword": "And "
 });
 formatter.match({
-  "location": "step_definitions.HomePageTest.iAmVerifyingThatTheSearchLabelIs(java.lang.String)"
+  "location": "step_definitions.HomePageTest.iAmClickingTheSignInButton()"
 });
 formatter.result({
   "status": "passed"
+});
+formatter.step({
+  "name": "I am providing \"userName\" as username",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "step_definitions.HomePageTest.iAmProvidingAsUsername(java.lang.String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "I am providing \"password\" as password",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "step_definitions.HomePageTest.iAmProvidingAsPassword(java.lang.String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "I am clicking the Submit Button",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "step_definitions.HomePageTest.iAmClickingTheSubmitButton()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "I am clicking the \"Submit\" Button",
+  "keyword": "And "
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
+});
+formatter.step({
+  "name": "I am validating a \"message\" as message",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "step_definitions.HomePageTest.iAmValidatingAAsMessage(java.lang.String)"
+});
+formatter.result({
+  "status": "skipped"
 });
 formatter.after({
   "status": "passed"

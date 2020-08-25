@@ -20,7 +20,7 @@ In this class all step definitions for those steps in feature file are stored. G
 as short as possible. If you think your Test method will look bigger, try to create a method in implementation class
 and call it in your step definition method.
  */
-public class HomePageTest extends HomePageImpl{
+public class HomePageTest {
 
 
 
@@ -34,8 +34,6 @@ public class HomePageTest extends HomePageImpl{
                 Assert.assertEquals("Toxic Sushi" , Driver.getDriver().getTitle());
         }
 
-
-
         @And("I am clicking the Toggle Button")
         public void iAmClickingTheToggleButton() {
                 HomePage homePage = new HomePage();
@@ -48,6 +46,7 @@ public class HomePageTest extends HomePageImpl{
                 SeleniumUtils.click(homePage.signInBtn);
         }
 
+
         @And("I am providing {string} as username")
         public void iAmProvidingAsUsername(String arg0) {
                 HomePage homePage = new HomePage();
@@ -59,6 +58,7 @@ public class HomePageTest extends HomePageImpl{
                 HomePage homePage = new HomePage();
                 SeleniumUtils.sendKeys(homePage.password, "azam1234");
         }
+
         @And("I am clicking the Submit Button")
         public void iAmClickingTheSubmitButton() {
                 HomePage homePage = new HomePage();

@@ -3,11 +3,11 @@
     "line": 3,
     "elements": [
       {
-        "start_timestamp": "2020-08-25T02:28:16.338Z",
+        "start_timestamp": "2020-08-25T21:30:56.673Z",
         "before": [
           {
             "result": {
-              "duration": 2634000000,
+              "duration": 2395000000,
               "status": "passed"
             },
             "match": {
@@ -15,14 +15,14 @@
             }
           }
         ],
-        "line": 50,
-        "name": "Search Restaurants button test",
+        "line": 20,
+        "name": "Log in credentials test",
         "description": "",
-        "id": "home-page-tests;search-restaurants-button-test",
+        "id": "home-page-tests;log-in-credentials-test",
         "after": [
           {
             "result": {
-              "duration": 126000000,
+              "duration": 109000000,
               "status": "passed"
             },
             "match": {
@@ -35,10 +35,10 @@
         "steps": [
           {
             "result": {
-              "duration": 1235000000,
+              "duration": 1125000000,
               "status": "passed"
             },
-            "line": 51,
+            "line": 21,
             "name": "I am opening a home page",
             "match": {
               "location": "step_definitions.HomePageTest.i_am_opening_a_home_page()"
@@ -47,31 +47,100 @@
           },
           {
             "result": {
-              "duration": 1079000000,
+              "duration": 629000000,
               "status": "passed"
             },
-            "line": 52,
-            "name": "I am clicking the Search Restaurant Button",
+            "line": 22,
+            "name": "I am clicking the Toggle Button",
             "match": {
-              "location": "step_definitions.HomePageTest.iAmClickingTheSearchRestaurantButton()"
+              "location": "step_definitions.HomePageTest.iAmClickingTheToggleButton()"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 38000000,
+              "duration": 476000000,
               "status": "passed"
             },
-            "line": 53,
-            "name": "I am verifying that the Search Label is \"SEARCH RESTAURANTS\"",
+            "line": 23,
+            "name": "I am clicking the Sign in Button",
+            "match": {
+              "location": "step_definitions.HomePageTest.iAmClickingTheSignInButton()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1097000000,
+              "status": "passed"
+            },
+            "line": 24,
+            "name": "I am providing \"userName\" as username",
             "match": {
               "arguments": [
                 {
-                  "val": "\"SEARCH RESTAURANTS\"",
-                  "offset": 40
+                  "val": "\"userName\"",
+                  "offset": 15
                 }
               ],
-              "location": "step_definitions.HomePageTest.iAmVerifyingThatTheSearchLabelIs(java.lang.String)"
+              "location": "step_definitions.HomePageTest.iAmProvidingAsUsername(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 475000000,
+              "status": "passed"
+            },
+            "line": 25,
+            "name": "I am providing \"password\" as password",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"password\"",
+                  "offset": 15
+                }
+              ],
+              "location": "step_definitions.HomePageTest.iAmProvidingAsPassword(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 493000000,
+              "status": "passed"
+            },
+            "line": 26,
+            "name": "I am clicking the Submit Button",
+            "match": {
+              "location": "step_definitions.HomePageTest.iAmClickingTheSubmitButton()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 27,
+            "name": "I am clicking the \"Submit\" Button",
+            "match": {},
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "skipped"
+            },
+            "line": 28,
+            "name": "I am validating a \"message\" as message",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"message\"",
+                  "offset": 18
+                }
+              ],
+              "location": "step_definitions.HomePageTest.iAmValidatingAAsMessage(java.lang.String)"
             },
             "keyword": "Then "
           }
@@ -81,7 +150,7 @@
             "name": "@home_Page_Regression_test"
           },
           {
-            "name": "@search_Restaurants_test"
+            "name": "@logIn_test"
           }
         ]
       }

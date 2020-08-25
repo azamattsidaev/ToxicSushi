@@ -7,6 +7,15 @@ Feature: Home Page tests
  Given I am opening a home page
  Then  I am verifying that the title is Toxic Sushi
 
+# @logIn_test
+# Scenario: Log in credentials test
+#  Given I am opening a home page
+#  And I am clicking the "Toggle" Button
+#  And I am clicking the "Sign in" Button
+#  And I am providing "userName" as username
+#  And I am providing "password" as password
+#  And I am clicking the "Submit" Button
+#  Then I am validating a "message" as message
  @logIn_test
   Scenario: Log in credentials test
   Given I am opening a home page
