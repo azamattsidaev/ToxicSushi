@@ -1,0 +1,105 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "start_timestamp": "2020-08-25T01:59:04.929Z",
+        "before": [
+          {
+            "result": {
+              "duration": 2454000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "step_definitions.Hooks.setUp(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "line": 48,
+        "name": "Search Restaurants button test",
+        "description": "",
+        "id": "home-page-tests;search-restaurants-button-test",
+        "after": [
+          {
+            "result": {
+              "duration": 122000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "step_definitions.Hooks.tearDown(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3299000000,
+              "status": "passed"
+            },
+            "line": 49,
+            "name": "I am opening a home page",
+            "match": {
+              "location": "step_definitions.HomePageTest.i_am_opening_a_home_page()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 934000000,
+              "status": "passed"
+            },
+            "line": 50,
+            "name": "I am clicking the Search Restaurant Button",
+            "match": {
+              "location": "step_definitions.HomePageTest.iAmClickingTheSearchRestaurantButton()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 37000000,
+              "status": "passed"
+            },
+            "line": 51,
+            "name": "I am verifying that the Search Label is \"SEARCH RESTAURANTS\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"SEARCH RESTAURANTS\"",
+                  "offset": 40
+                }
+              ],
+              "location": "step_definitions.HomePageTest.iAmVerifyingThatTheSearchLabelIs(java.lang.String)"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@home_Page_Regression_test"
+          },
+          {
+            "name": "@search_Restaurants_test"
+          }
+        ]
+      }
+    ],
+    "name": "Home Page tests",
+    "description": "",
+    "id": "home-page-tests",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/homePage.feature",
+    "tags": [
+      {
+        "name": "@home_Page_Regression_test",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      }
+    ]
+  }
+]
