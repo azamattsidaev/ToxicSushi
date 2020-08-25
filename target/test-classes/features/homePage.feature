@@ -1,13 +1,15 @@
 @home_Page_Regression_test
+
 Feature: Home Page tests
+
 @title_verify
  Scenario: Verify Home Page title
-  Given I am opening a home page
-  Then  I am verifying that the title is Toxic Sushi
+ Given I am opening a home page
+ Then  I am verifying that the title is Toxic Sushi
 
  @logIn_test
   Scenario: Log in credentials test
-   Given I am opening a home page
+  Given I am opening a home page
    And I am clicking the Toggle Button
    And I am clicking the Sign in Button
    And I am providing "userName" as username
@@ -29,7 +31,7 @@ Feature: Home Page tests
 
  @nav_Bar_test
   Scenario: Navigation Bar test
-   Given I am opening a home page
+  Given I am opening a home page
    And verifying Navigation Buttons displayed
 
 @hungry_button_test

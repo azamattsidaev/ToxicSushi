@@ -1,13 +1,13 @@
 [
   {
-    "line": 2,
+    "line": 3,
     "elements": [
       {
-        "start_timestamp": "2020-08-25T01:59:04.929Z",
+        "start_timestamp": "2020-08-25T02:28:16.338Z",
         "before": [
           {
             "result": {
-              "duration": 2454000000,
+              "duration": 2634000000,
               "status": "passed"
             },
             "match": {
@@ -15,14 +15,14 @@
             }
           }
         ],
-        "line": 48,
+        "line": 50,
         "name": "Search Restaurants button test",
         "description": "",
         "id": "home-page-tests;search-restaurants-button-test",
         "after": [
           {
             "result": {
-              "duration": 122000000,
+              "duration": 126000000,
               "status": "passed"
             },
             "match": {
@@ -35,10 +35,10 @@
         "steps": [
           {
             "result": {
-              "duration": 3299000000,
+              "duration": 1235000000,
               "status": "passed"
             },
-            "line": 49,
+            "line": 51,
             "name": "I am opening a home page",
             "match": {
               "location": "step_definitions.HomePageTest.i_am_opening_a_home_page()"
@@ -47,10 +47,10 @@
           },
           {
             "result": {
-              "duration": 934000000,
+              "duration": 1079000000,
               "status": "passed"
             },
-            "line": 50,
+            "line": 52,
             "name": "I am clicking the Search Restaurant Button",
             "match": {
               "location": "step_definitions.HomePageTest.iAmClickingTheSearchRestaurantButton()"
@@ -59,10 +59,10 @@
           },
           {
             "result": {
-              "duration": 37000000,
+              "duration": 38000000,
               "status": "passed"
             },
-            "line": 51,
+            "line": 53,
             "name": "I am verifying that the Search Label is \"SEARCH RESTAURANTS\"",
             "match": {
               "arguments": [

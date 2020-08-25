@@ -20,7 +20,7 @@ In this class all step definitions for those steps in feature file are stored. G
 as short as possible. If you think your Test method will look bigger, try to create a method in implementation class
 and call it in your step definition method.
  */
-public class HomePageTest{
+public class HomePageTest extends HomePageImpl{
 
 
 
@@ -133,4 +133,6 @@ public class HomePageTest{
                 HomePage homePage = new HomePage();
                 SeleniumUtils.click(homePage.searchRestaurantBtn);
         }
+
+
 }
