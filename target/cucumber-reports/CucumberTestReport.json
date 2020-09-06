@@ -1,13 +1,13 @@
 [
   {
-    "line": 3,
+    "line": 1,
     "elements": [
       {
-        "start_timestamp": "2020-08-25T21:30:56.673Z",
+        "start_timestamp": "2020-09-06T18:41:32.404Z",
         "before": [
           {
             "result": {
-              "duration": 2395000000,
+              "duration": 3621000000,
               "status": "passed"
             },
             "match": {
@@ -15,14 +15,14 @@
             }
           }
         ],
-        "line": 20,
-        "name": "Log in credentials test",
+        "line": 4,
+        "name": "postgres test demoHR departments",
         "description": "",
-        "id": "home-page-tests;log-in-credentials-test",
+        "id": "query-database-demohr;postgres-test-demohr-departments",
         "after": [
           {
             "result": {
-              "duration": 109000000,
+              "duration": 103000000,
               "status": "passed"
             },
             "match": {
@@ -35,140 +35,113 @@
         "steps": [
           {
             "result": {
-              "duration": 1125000000,
+              "duration": 204000000,
               "status": "passed"
             },
-            "line": 21,
-            "name": "I am opening a home page",
+            "line": 5,
+            "name": "user establish connection to database \"demoHR\"",
             "match": {
-              "location": "step_definitions.HomePageTest.i_am_opening_a_home_page()"
+              "arguments": [
+                {
+                  "val": "\"demoHR\"",
+                  "offset": 38
+                }
+              ],
+              "location": "step_definitions.demoHR.user_establish_connection_to_database(java.lang.String)"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 629000000,
+              "duration": 23000000,
               "status": "passed"
             },
-            "line": 22,
-            "name": "I am clicking the Toggle Button",
-            "match": {
-              "location": "step_definitions.HomePageTest.iAmClickingTheToggleButton()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 476000000,
-              "status": "passed"
-            },
-            "line": 23,
-            "name": "I am clicking the Sign in Button",
-            "match": {
-              "location": "step_definitions.HomePageTest.iAmClickingTheSignInButton()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 1097000000,
-              "status": "passed"
-            },
-            "line": 24,
-            "name": "I am providing \"userName\" as username",
+            "line": 6,
+            "name": "user executes query \"select * from departments\" and verifies result \"Finance\"",
             "match": {
               "arguments": [
                 {
-                  "val": "\"userName\"",
-                  "offset": 15
+                  "val": "\"select * from departments\"",
+                  "offset": 20
+                },
+                {
+                  "val": "\"Finance\"",
+                  "offset": 68
                 }
               ],
-              "location": "step_definitions.HomePageTest.iAmProvidingAsUsername(java.lang.String)"
+              "location": "step_definitions.demoHR.user_executes_query_and_verifies_result(java.lang.String,java.lang.String)"
             },
-            "keyword": "And "
+            "keyword": "Then "
           },
           {
             "result": {
-              "duration": 475000000,
+              "duration": 3000000,
               "status": "passed"
             },
-            "line": 25,
-            "name": "I am providing \"password\" as password",
+            "line": 7,
+            "name": "user executes query \"select * from departments\" and verifies result \"dept_name\" and result value \"Finance\"",
             "match": {
               "arguments": [
                 {
-                  "val": "\"password\"",
-                  "offset": 15
+                  "val": "\"select * from departments\"",
+                  "offset": 20
+                },
+                {
+                  "val": "\"dept_name\"",
+                  "offset": 68
+                },
+                {
+                  "val": "\"Finance\"",
+                  "offset": 97
                 }
               ],
-              "location": "step_definitions.HomePageTest.iAmProvidingAsPassword(java.lang.String)"
+              "location": "step_definitions.demoHR.user_executes_query_and_verifies_result_and_result_value(java.lang.String,java.lang.String,java.lang.String)"
             },
-            "keyword": "And "
+            "keyword": "Then "
           },
           {
             "result": {
-              "duration": 493000000,
+              "duration": 2000000,
               "status": "passed"
             },
-            "line": 26,
-            "name": "I am clicking the Submit Button",
+            "line": 8,
+            "name": "user gets total row count for query \"select * from departments\"",
             "match": {
-              "location": "step_definitions.HomePageTest.iAmClickingTheSubmitButton()"
+              "arguments": [
+                {
+                  "val": "\"select * from departments\"",
+                  "offset": 36
+                }
+              ],
+              "location": "step_definitions.demoHR.user_gets_total_row_count_for_query(java.lang.String)"
             },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "undefined"
-            },
-            "line": 27,
-            "name": "I am clicking the \"Submit\" Button",
-            "match": {},
-            "keyword": "And "
+            "keyword": "Then "
           },
           {
             "result": {
               "duration": 1000000,
-              "status": "skipped"
+              "status": "passed"
             },
-            "line": 28,
-            "name": "I am validating a \"message\" as message",
+            "line": 9,
+            "name": "user closes connection to database",
             "match": {
-              "arguments": [
-                {
-                  "val": "\"message\"",
-                  "offset": 18
-                }
-              ],
-              "location": "step_definitions.HomePageTest.iAmValidatingAAsMessage(java.lang.String)"
+              "location": "step_definitions.demoHR.user_closes_connection_to_database()"
             },
-            "keyword": "Then "
+            "keyword": "And "
           }
         ],
         "tags": [
           {
-            "name": "@home_Page_Regression_test"
-          },
-          {
-            "name": "@logIn_test"
+            "name": "@demoHR"
           }
         ]
       }
     ],
-    "name": "Home Page tests",
+    "name": "Query database demoHR",
     "description": "",
-    "id": "home-page-tests",
+    "id": "query-database-demohr",
     "keyword": "Feature",
-    "uri": "file:src/test/resources/features/homePage.feature",
-    "tags": [
-      {
-        "name": "@home_Page_Regression_test",
-        "type": "Tag",
-        "location": {
-          "line": 1,
-          "column": 1
-        }
-      }
-    ]
+    "uri": "file:src/test/resources/features/demoHR.feature",
+    "tags": []
   }
 ]

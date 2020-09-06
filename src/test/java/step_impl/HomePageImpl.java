@@ -10,19 +10,5 @@ import utils.SeleniumUtils;
 public class HomePageImpl {
     //Here you will store your re-usable methods that belongs to Home Page only
 
-//    @And("I am clicking the {string} Button")
-//    public void iAmClickingTheButton(String button) {
-//        String path = "";
-//        switch (button.toLowerCase()){
-//            case "Toggle": path = "//div[@class='toggle-btn']";
-//                break;
-//            case "Sign in ": path = "//a[text()='Sign in']";
-//                break;
-//            case "Submit": path = "signin_submit";
-//                break;
-//            default:
-//                System.out.println("Invalid button");
-//        }
-//        SeleniumUtils.click(Driver.getDriver().findElement(By.xpath(path)));
-//    }
+
 }

@@ -1,8 +1,11 @@
 package step_definitions;
 
+import com.sun.tools.internal.ws.processor.generator.CustomExceptionGenerator;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import io.cucumber.java.eo.Se;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -10,9 +13,11 @@ import pages.CommonPage;
 import pages.HomePage;
 import step_impl.HomePageImpl;
 import utils.ConfigReader;
+import utils.CucumberUtils;
 import utils.Driver;
 import utils.SeleniumUtils;
 
+import java.awt.*;
 import java.util.List;
 
 /*
@@ -22,11 +27,12 @@ and call it in your step definition method.
  */
 public class HomePageTest {
 
-
+      public static String propertyPath= "src/test/resources/conf/configuration.properties";
 
         @Given("I am opening a home page")
         public void i_am_opening_a_home_page() {
-           Driver.getDriver().get("https://toxic-sushi-26692.herokuapp.com/index.html#");
+                String url = ConfigReader.readProperty("url", propertyPath);
+           Driver.getDriver().get(url);
         }
 
         @Then("I am verifying that the title is Toxic Sushi")
@@ -34,58 +40,60 @@ public class HomePageTest {
                 Assert.assertEquals("Toxic Sushi" , Driver.getDriver().getTitle());
         }
 
-        @And("I am clicking the Toggle Button")
-        public void iAmClickingTheToggleButton() {
-                HomePage homePage = new HomePage();
-                SeleniumUtils.click(homePage.toggleBtn);
+
+        @And("I login the page")
+        public void iLoginThePage() {
+             HomePage homePage = new HomePage();
+             String username = ConfigReader.readProperty("username", propertyPath);
+             String password = ConfigReader.readProperty("password", propertyPath);
+             homePage.logIn(username, password);
         }
 
-        @And("I am clicking the Sign in Button")
-        public void iAmClickingTheSignInButton() {
+        @And("I am clicking the {string} Button")
+        public void iAmClickingTheSignOutButton(String button) {
                 HomePage homePage = new HomePage();
-                SeleniumUtils.click(homePage.signInBtn);
-        }
-
-
-        @And("I am providing {string} as username")
-        public void iAmProvidingAsUsername(String arg0) {
-                HomePage homePage = new HomePage();
-                SeleniumUtils.sendKeys(homePage.email, "azam@yahoo.com");
-        }
-
-        @And("I am providing {string} as password")
-        public void iAmProvidingAsPassword(String arg0) {
-                HomePage homePage = new HomePage();
-                SeleniumUtils.sendKeys(homePage.password, "azam1234");
-        }
-
-        @And("I am clicking the Submit Button")
-        public void iAmClickingTheSubmitButton() {
-                HomePage homePage = new HomePage();
-                SeleniumUtils.click(homePage.submitBtn);
-        }
-
-//        @Then("I am validating a {string} as message")
-//        public void iAmValidatingAAsMessage(String arg0) {
-//                HomePage homePage = new HomePage();
-//                Assert.assertEquals("Your email or password is incorrect! Please try again!",
-//                        SeleniumUtils.getText(homePage.errorMsg));
-//        }
-
-        @Then("I am validating a {string} as message")
-        public void iAmValidatingAAsMessage(String arg0) {
-                HomePage homePage = new HomePage();
-                Assert.assertEquals("Hi, Azamat",
-                        SeleniumUtils.getText(homePage.welcomeMsg));
+                switch(button.toLowerCase()){
+                        case "Sign out":
+                                SeleniumUtils.click(homePage.toggleBtn);
+                                SeleniumUtils.click(homePage.signOutBtn);
+                                break;
+                        case "Hungry":
+                                SeleniumUtils.click(homePage.hungryBtn);
+                                break;
+                        case "Show me more":
+                                SeleniumUtils.click(homePage.showMoreBtn);
+                                break;
+                        case "Search Restaurant":
+                                SeleniumUtils.click(homePage.searchRestaurantBtn);
+                                break;
+                        default:
+                                System.out.println("Invalid button");
+                }
         }
 
 
-        @And("I am clicking the Sign Out Button")
-        public void iAmClickingTheSignOutButton() {
-                SeleniumUtils.sleep(2000);
+        @When("I login with invalid credentials")
+        public void iLoginWithInvalidCredentials() {
                 HomePage homePage = new HomePage();
-                SeleniumUtils.click(homePage.signOutBtn);
+                homePage.logIn("AZAM", "1234");
         }
+
+
+        @Then("I am verifying {string} as {string}")
+        public void iAmVerifyingAs(String messageType, String message) {
+                HomePage homePage = new HomePage();
+                switch (messageType.toLowerCase()) {
+                        case "error message": message = homePage.errorMsg.getText() ;
+                                break;
+                        case "hi message" : message = homePage.welcomeMsg.getText();
+                                break;
+                        default:
+                                System.out.println("Invalid message");
+                }
+                SeleniumUtils.waitForPageToLoad();
+                CucumberUtils.logInfo(" Message type: " + messageType + " Result: " + message, true);
+        }
+
 
         @Then("I am verifying {string}message is not displayed")
         public void iAmVerifyingMessageIsNotDisplayed(String arg0) {
@@ -98,17 +106,11 @@ public class HomePageTest {
         public void verifyingNavigationButtonsDisplayed() {
                 List<WebElement> navButtons = Driver.getDriver().findElements(By.xpath("//nav[@class='header-nav']/div/a"));
                 String[] barButtons = {"Home", "Search Restaurants","Search Fun Places","My Favorites"};
-//                Assert.assertTrue(homePage.barButtons.isDisplayed());
                 for(int i = 0; i< navButtons.size(); i ++){
                         Assert.assertEquals(navButtons.get(i).getAttribute("text"), barButtons[i]);
                 }
         }
 
-        @And("I am clicking the Hungry Button")
-        public void iAmClickingTheHungryButton() {
-                HomePage homePage = new HomePage();
-                SeleniumUtils.click(homePage.hungryBtn);
-        }
 
         @Then("I am verifying that the Search Label is {string}")
         public void iAmVerifyingThatTheSearchLabelIs(String arg0) {
@@ -116,23 +118,11 @@ public class HomePageTest {
                 Assert.assertEquals("SEARCH RESTAURANTS", homePage.searchLabel.getText());
         }
 
-        @And("I am clicking the Show me more Button")
-        public void iAmClickingTheShowMeMoreButton() {
-                HomePage homePage = new HomePage();
-                SeleniumUtils.click(homePage.showMoreBtn);
-        }
 
         @Then("I am verifying that the Contacts Label is {string}")
         public void iAmVerifyingThatTheContactsLabelIs(String arg0) {
                 HomePage homePage = new HomePage();
                 Assert.assertEquals("WE'RE HAPPY TO HEAR FROM YOU", homePage.contactsLabel.getText());
         }
-
-        @And("I am clicking the Search Restaurant Button")
-        public void iAmClickingTheSearchRestaurantButton() {
-                HomePage homePage = new HomePage();
-                SeleniumUtils.click(homePage.searchRestaurantBtn);
-        }
-
 
 }

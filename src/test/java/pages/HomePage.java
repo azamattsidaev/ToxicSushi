@@ -4,6 +4,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utils.Driver;
+import utils.SeleniumUtils;
+
 /*
 All WebElements, also known as page objects of Home Page are stored in this class. Page Factory is used to initialize
 our objects so we can use them. Driver.getDriver() method is used to connect our WebElements with that driver.
@@ -23,7 +25,7 @@ public class HomePage {
     public WebElement email;
 
     @FindBy(id = "signin_password")
-    public WebElement password;
+    public WebElement passwordBox;
 
     @FindBy(id = "signin_submit")
     public WebElement submitBtn;
@@ -52,5 +54,11 @@ public class HomePage {
     @FindBy(xpath = "//a[@id='search_restaurants_link']")
     public WebElement searchRestaurantBtn;
 
-
+    public void logIn(String username, String password) {
+        SeleniumUtils.click(toggleBtn);
+        SeleniumUtils.click(signInBtn);
+        SeleniumUtils.sendKeys(email, username);
+        SeleniumUtils.sendKeys(passwordBox, password);
+        SeleniumUtils.click(submitBtn);
+    }
 }
